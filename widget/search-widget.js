@@ -149,6 +149,11 @@
     document.body.appendChild(overlay);
 
     function open() {
+      // A pending debounce/fetch from a *previous* time the overlay was
+      // open can otherwise land after reopen and paint stale results
+      // over an input the user sees as empty.
+      clearTimeout(debounceTimer);
+      if (activeController) activeController.abort();
       overlay.classList.add("hv-open");
       input.value = "";
       renderHint(resultsBox);
@@ -157,6 +162,8 @@
       }, 30);
     }
     function close() {
+      clearTimeout(debounceTimer);
+      if (activeController) activeController.abort();
       overlay.classList.remove("hv-open");
     }
 
