@@ -35,7 +35,7 @@
     minChars: 2,
     debounceMs: 120,
     maxResults: 8,
-  };
+  }; 
 
   if (!config.appId || !config.searchKey) {
     console.error(
