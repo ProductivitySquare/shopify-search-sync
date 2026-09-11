@@ -1,0 +1,21 @@
+{
+  "name": "habitatvita-search-sync",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Syncs a Shopify product catalog into a self-hosted Meilisearch index for instant, typo-tolerant search.",
+  "type": "module",
+  "scripts": {
+    "backfill": "tsx scripts/backfill.ts",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "dependencies": {
+    "algoliasearch": "^5.15.0",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.9",
+    "@vercel/node": "^3.1.7",
+    "tsx": "^4.16.2",
+    "typescript": "^5.5.3"
+  }
+}
